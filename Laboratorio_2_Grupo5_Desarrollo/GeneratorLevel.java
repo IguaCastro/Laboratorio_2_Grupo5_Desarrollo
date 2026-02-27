@@ -42,6 +42,7 @@ public class GeneratorLevel {
                 }
                 System.out.println();
             }
-        }
+        scanner.close();
+        } 
     }
 }
