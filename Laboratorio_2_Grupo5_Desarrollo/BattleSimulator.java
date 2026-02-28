@@ -10,9 +10,9 @@ public class BattleSimulator {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        boolean jugar = true;
+        boolean play = true;
 
-        while (jugar) {
+        while (play) {
 
             System.out.println("\n== CONFIGURAR JUGADOR ==");
 
@@ -52,18 +52,18 @@ public class BattleSimulator {
 
             System.out.println("\n=== INICIO DE LA BATALLA ===");
 
-            int ronda = 1;
-            int maxRondas = 10;
+            int round = 1;
+            int maxRounds = 10;
 
-            while (playerLife > 0 && enemyLife > 0 && ronda <= maxRondas) {
+            while (playerLife > 0 && enemyLife > 0 && round <= maxRounds) {
 
-                System.out.println("\n--- Ronda " + ronda + " ---");
+                System.out.println("\n--- Ronda " + round + " ---");
 
                 // ===== TURNO JUGADOR =====
-                int tipoAtaqueJugador = random.nextInt(2);
+                int typePlayerAttack = random.nextInt(2);
                 int playerDamage;
 
-                if (tipoAtaqueJugador == 0) {
+                if (typePlayerAttack == 0) {
                     playerDamage = physicalAttackPlayer;
                     System.out.println("Jugador usa ataque físico.");
                 } else {
@@ -100,8 +100,8 @@ public class BattleSimulator {
 
                     // CRÍTICO
                     if (random.nextInt(100) < enemyCritical) {
-                        int aumento = enemyDamage * enemyCritical / 100;
-                        enemyDamage += aumento;
+                        int increase = enemyDamage * enemyCritical / 100;
+                        enemyDamage += increase;
                         System.out.println("¡Golpe crítico del enemigo!");
                     }
 
@@ -118,7 +118,7 @@ public class BattleSimulator {
                 System.out.println("Jugador se regenera " + playerDefense + " puntos.");
                 System.out.println("Enemigo se regenera " + enemyDefense + " puntos.");
 
-                ronda++;
+                round++;
             }
 
             System.out.println("\n=== FIN DE LA BATALLA ===");
@@ -132,10 +132,10 @@ public class BattleSimulator {
             }
 
             System.out.print("\n¿Quieres jugar otra vez? (s/n): ");
-            String respuesta = scanner.next();
+            String answer = scanner.next();
 
-            if (!respuesta.equalsIgnoreCase("s")) {
-                jugar = false;
+            if (!answer.equalsIgnoreCase("s")) {
+                play = false;
             }
         }
 
