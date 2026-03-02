@@ -87,10 +87,10 @@ public class BattleSimulator {
                 // ===== TURNO ENEMIGO =====
                 if (enemyLife > 0) {
 
-                    int tipoAtaqueEnemigo = random.nextInt(2);
+                    int typeEnemiAtack = random.nextInt(2);
                     int enemyDamage;
 
-                    if (tipoAtaqueEnemigo == 0) {
+                    if (typeEnemiAtack == 0) {
                         enemyDamage = physicalAttackEnemy;
                         System.out.println("Enemigo usa ataque físico.");
                     } else {
@@ -138,7 +138,6 @@ public class BattleSimulator {
                 play = false;
             }
         }
-
         System.out.println("\nGracias por jugar.");
         scanner.close();
     }
