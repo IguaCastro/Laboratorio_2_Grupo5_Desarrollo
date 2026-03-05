@@ -7,28 +7,30 @@ public class GeneratorLevel {
 
     public static void main(String[] args) {
 
+        // Scanner permite leer datos que escribe el usuario
         try (Scanner scanner = new Scanner(System.in)) {
 
             System.out.println("=== Generador de Niveles ===");
 
-            // Elegir nivel
+            // MEJORA 1: El usuario puede elegir el nivel
             System.out.print("Elige un nivel (1-3): ");
             int level = scanner.nextInt();
 
-            // Validación del nivel
+            // MEJORA 2: Validación para evitar niveles incorrectos
             if (level < 1 || level > 3) {
                 System.out.println("Error: Debes elegir un nivel entre 1 y 3.");
                 return;
             }
 
-            // Usuario define tamaño del mapa
+            // MEJORA 3: El usuario puede elegir la altura del mapa
             System.out.print("Escribe la altura del mapa: ");
             int height = scanner.nextInt();
 
+            // MEJORA 4: El usuario puede elegir la anchura del mapa
             System.out.print("Escribe la anchura del mapa: ");
             int width = scanner.nextInt();
 
-            // Validación mínima del tamaño
+            // MEJORA 5: Validación para evitar mapas demasiado pequeños
             if (height < 5 || width < 5) {
                 System.out.println("El mapa debe ser al menos de tamaño 5x5.");
                 return;
@@ -38,24 +40,28 @@ public class GeneratorLevel {
             System.out.println("Altura: " + height + " | Ancho: " + width);
             System.out.println("\nMapa generado:\n");
 
+            // MEJORA 6: Se usa un método separado para generar el nivel
             generateLevel(height, width);
 
             System.out.println("\nNivel generado correctamente.");
         }
     }
 
-    // Método que genera el mapa
+    // Método que genera el mapa del nivel
     public static void generateLevel(int height, int width) {
 
+        // MEJORA 7: Uso de Random para generar elementos aleatorios
         Random random = new Random();
 
-        // Posiciones especiales
+        // MEJORA 8: Se agregó un jugador en la posición inicial
         int playerX = 1;
         int playerY = 1;
 
+        // MEJORA 9: Se agregó una salida del nivel
         int exitX = height - 2;
         int exitY = width - 2;
 
+        // MEJORA 10: Se agregó un tesoro en posición aleatoria
         int treasureX = random.nextInt(height - 2) + 1;
         int treasureY = random.nextInt(width - 2) + 1;
 
@@ -63,7 +69,7 @@ public class GeneratorLevel {
 
             for (int j = 0; j < width; j++) {
 
-                // Bordes
+                // Bordes del mapa (paredes)
                 if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
                     System.out.print("#");
                 }
@@ -87,12 +93,12 @@ public class GeneratorLevel {
 
                     int chance = random.nextInt(10);
 
-                    // Obstáculo
+                    // MEJORA 11: Obstáculos aleatorios
                     if (chance == 1) {
                         System.out.print("O");
                     }
 
-                    // Enemigo
+                    // MEJORA 12: Enemigos aleatorios
                     else if (chance == 2) {
                         System.out.print("E");
                     }
@@ -107,7 +113,7 @@ public class GeneratorLevel {
             System.out.println();
         }
 
-        // Leyenda
+        // MEJORA 13: Leyenda para explicar los símbolos del mapa
         System.out.println("\nLeyenda:");
         System.out.println("# = Pared");
         System.out.println("P = Jugador");
