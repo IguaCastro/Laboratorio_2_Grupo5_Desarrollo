@@ -1,7 +1,6 @@
 package Laboratorio_2_Grupo5_Desarrollo;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class GeneratorLevel {
 
