@@ -22,9 +22,6 @@ public class GuessNumber {
     }
         System.out.println("El numero secreto es: " + secret);
         System.out.println("Lo lograste en " + attemps + " intentos ");
-        
-
-
     sc.close();
     }
 }
