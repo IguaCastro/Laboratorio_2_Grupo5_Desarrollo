@@ -2,9 +2,7 @@ package Laboratorio_2_Grupo5_Desarrollo;
 
 import java.util.Scanner;
 import java.util.Random;
-
 public class BattleSimulator {
-
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -12,42 +10,91 @@ public class BattleSimulator {
 
         boolean play = true;
 
-        while (play) {
+        do{ 
 
             System.out.println("\n== CONFIGURAR JUGADOR ==");
 
             System.out.print("Vida del jugador: ");
             int playerLife = scanner.nextInt();
 
+            if(playerLife < 0){
+                System.out.println("El jugador no puede tener menos de 1 de vida.");
+                continue;
+            }
+
             System.out.print("Ataque físico del jugador: ");
             int physicalAttackPlayer = scanner.nextInt();
+
+            if(physicalAttackPlayer < 0){
+                System.out.println("El jugador no puede tener menos de 1 de daño fisico.");
+                continue;
+            }
 
             System.out.print("Ataque mágico del jugador: ");
             int magicalAttackPlayer = scanner.nextInt();
 
+            if(magicalAttackPlayer < 0){
+                System.out.println("El jugador no puede tener menos de 1 de daño magico.");
+                continue;
+            }
+
             System.out.print("Defensa (regeneración) del jugador: ");
             int playerDefense = scanner.nextInt();
+
+            if(playerDefense < 0){
+                System.out.println("El jugador no puede tener menos de 1 de defensa.");
+                continue;
+            }
 
             System.out.print("Crítico (% probabilidad y aumento): ");
             int playerCritical = scanner.nextInt();
 
+            if(playerCritical < 0){
+                System.out.println("El jugador no puede tener menos de 1 de daño critico.");
+                continue;
+            }
 
             System.out.println("\n== CONFIGURAR ENEMIGO ==");
 
             System.out.print("Vida del enemigo: ");
             int enemyLife = scanner.nextInt();
 
+            if(enemyLife < 0){
+                System.out.println("El enemigo no puede tener menos de 1 de vida.");
+                continue;
+            }
+
             System.out.print("Ataque físico del enemigo: ");
             int physicalAttackEnemy = scanner.nextInt();
+
+            if(physicalAttackEnemy < 0){
+                System.out.println("El enemigo no puede tener menos de 1 de daño fisico.");
+                continue;
+            }
 
             System.out.print("Ataque mágico del enemigo: ");
             int magicalAttackEnemy = scanner.nextInt();
 
+            if(magicalAttackEnemy < 0){
+                System.out.println("El enemigo no puede tener menos de 1 de daño magico.");
+                continue;
+            }
+
             System.out.print("Defensa (regeneración) del enemigo: ");
             int enemyDefense = scanner.nextInt();
 
+            if(enemyDefense < 0){
+                System.out.println("El enemigo no puede tener menos de 1 de defensa.");
+                continue;
+            }
+
             System.out.print("Crítico (% probabilidad y aumento): ");
             int enemyCritical = scanner.nextInt();
+
+            if(enemyCritical < 0){
+                System.out.println("El enemigo no puede tener menos de 1 de daño critico.");
+                continue;
+            }
 
 
             System.out.println("\n=== INICIO DE LA BATALLA ===");
@@ -137,10 +184,9 @@ public class BattleSimulator {
             if (!answer.equalsIgnoreCase("s")) {
                 play = false;
             }
-        }
+        }while(play);
 
         System.out.println("\nGracias por jugar.");
         scanner.close();
     }
-} 
-
+}
