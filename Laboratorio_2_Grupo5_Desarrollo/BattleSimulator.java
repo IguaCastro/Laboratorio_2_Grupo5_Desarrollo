@@ -12,7 +12,7 @@ public class BattleSimulator {
 
         boolean jugar = true;
 
-        while (jugar) {
+        while (jugar ) {
 
             System.out.println("\n== CONFIGURAR JUGADOR ==");
 

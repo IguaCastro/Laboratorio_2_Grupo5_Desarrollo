@@ -20,7 +20,7 @@ public class GeneratorLevel {
             switch (level) {
                 case 1:
                     System.out.println("Nivel Fácil seleccionado.");
-                    difficulty = 15;
+                    difficulty = 6;
                     break;
 
                 case 2:
@@ -30,7 +30,7 @@ public class GeneratorLevel {
 
                 case 3:
                     System.out.println("Nivel Difícil seleccionado.");
-                    difficulty = 6;
+                    difficulty =15;
                     break;
 
                 default:
@@ -112,13 +112,5 @@ public class GeneratorLevel {
 
             System.out.println();
         }
-
-        System.out.println("\nLeyenda:");
-        System.out.println("# = Pared");
-        System.out.println("P = Jugador");
-        System.out.println("S = Salida");
-        System.out.println("T = Tesoro");
-        System.out.println("O = Obstáculo");
-        System.out.println("E = Enemigo");
     }
 }
